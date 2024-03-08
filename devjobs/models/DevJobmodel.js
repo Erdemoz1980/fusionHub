@@ -20,6 +20,6 @@ const jobSchema = mongoose.Schema({
   role: commonSchema
 })
 
-const Job = mongoose.model('Job', jobSchema);
+const DevJobModel = mongoose.model('Job', jobSchema);
 
-module.exports = { Job };
+module.exports = { DevJobModel };

@@ -1,4 +1,4 @@
-const { Job } = require('../models/models');
+const { DevJobModel } = require('../models/DevJobmodel');
 const {
   GraphQLID,
   GraphQLInt,
@@ -47,7 +47,7 @@ const RootQuery = new GraphQLObjectType({
       type: JobType,
       args: { _id: { type: GraphQLID } },
       resolve(parent, args) {
-        return Job.findById(args._id)
+        return DevJobModel.findById(args._id)
       }
     },
     jobs: {
@@ -99,9 +99,8 @@ const RootQuery = new GraphQLObjectType({
           query._id = { $gt: args.lastItemId }
         }
 
-        const jobs = await Job.find(query).limit(3).sort({ _id: 1 });
-        const totalCount = await Job.countDocuments(query);
-        console.log(totalCount)
+        const jobs = await DevJobModel.find(query).limit(3).sort({ _id: 1 });
+        const totalCount = await DevJobModel.countDocuments(query);
         return { jobs, totalCount };
       }
     }

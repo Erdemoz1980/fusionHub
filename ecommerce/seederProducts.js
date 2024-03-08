@@ -1,6 +1,6 @@
 const { ProductModel } = require('./models/models');
 const productsData = require('./productsData');
-const connectDB = require('./config/db');
+const connectDB = require('../config/db');
 const dotenv = require('dotenv')
 
 dotenv.config()
